@@ -1,0 +1,3 @@
+<?php Class Emitente_Imovel_model extends CI_Model { public function pegarEmitentesImovel($id){  $this -> db -> select('*');   $this -> db -> from('emitente_imovel');   $this -> db -> where('emitente_imovel.id_imovel', $id);      $query = $this -> db -> get();   if($query -> num_rows() <> 0) {     return $query->result();   }else{     return false;   } }   public function add($detalhes = array()){	if($this->db->insert('emitente_imovel', $detalhes)) {					$id = $this->db->insert_id();		return $id;	}	return false;	}	  public function update($detalhes = array(),$id){	$this->db->where('id', $id);	$this->db->update('emitente_imovel', $detalhes); 	return true; }	
+}
+?>

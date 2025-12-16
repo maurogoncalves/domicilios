@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="6.0+" codebase="https://secweb.procergs.com.br:443/assinadorserver/app/">
+	<information>
+		<title>Assinador AC-RS</title>
+		<vendor>PROCERGS</vendor> 
+		<homepage href="www.ac.rs.gov.br"></homepage> 
+		<description>Solução de Assinatura e Autenticação com Certificados Digitais da AC-RS</description> 
+		<description kind="short">Assinador de documentos padrão ICP-Brasil</description>
+		<icon href="img/ACRS48.png" width="48" height="48" />
+		<icon href="img/SplashJava.png" kind="splash" />
+		<offline-allowed/>
+	</information>
+	<security>
+		<all-permissions />
+	</security>
+	<update check="timeout" policy="always"/>
+	<resources>
+		<j2se version="1.8+" href="http://java.sun.com/products/autodl/j2se" />
+		<jar href="AssinadorFX.jar" main="true" />
+	</resources>
+	<application-desc main-class="com.acrs.Aplicacao">
+<argument>vQfMAgr73Lov/YVLuemCzmEFMfK6c36dZ1gmIK8w/3d7rz9hgs2VPpLEx0I9MD1DOgtgYiv3GneIJ8JAfKtS9ALeVTOg2RG4/J4fjlq+zpwxURnjH2gDHvDgKlg7F5UROU2aZ1RgRIELalGOj1JS+hBZeDvzD0NONNcLWz469j4XuCCJBBTfVg==</argument>
+<argument>8cEXQhKjJqc=</argument>
+<argument>jwjxJh0utpAqm3TcLTe9n1yUG/le4lWfHvhkdMTFa20XuCCJBBTfVg==</argument>
+<argument>F7ggiQQU31Y=</argument>
+<argument>3hV8n57nTuepo+4wFd1jBS6MSpJWFZNGadOO3MybIrZjr0GYaVu3tA==</argument>
+<argument>F7ggiQQU31Y=</argument>
+<argument>PscyLxtx9Ts=</argument>
+<argument>PscyLxtx9Ts=</argument>
+<argument>tv37a2zZN3E=</argument>
+<argument>3hV8n57nTueigT/D1vn2Pn+SvuH+Rbl7+FTtp98sWeA=</argument>
+	</application-desc>
+</jnlp>
+

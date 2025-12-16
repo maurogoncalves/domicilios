@@ -1,0 +1,2 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+function mpdf($html){   include("mpdf/mpdf.php");		$mpdf=new mPDF(); 	$mpdf->SetDisplayMode('fullpage');	$mpdf->WriteHTML($html);	$mpdf->Output();	}

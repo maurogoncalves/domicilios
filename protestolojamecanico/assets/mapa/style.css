@@ -1,0 +1,143 @@
+
+body
+{
+    background: #f0f0f0;
+}
+
+#wrap
+{
+    width:960px;
+    margin:0 auto;
+}
+
+#controls
+{
+    border:1px solid #333;
+    -moz-box-shadow: 0 0 8px #333;
+    -webkit-box-shadow: 0 0 8px #333;
+    box-shadow: 0 0 8px #333;    
+    width:480px; 
+    height:200px;
+    margin:0 auto;
+    margin-top: 15px;
+    background: #fff;
+    padding:0px;
+    padding-left:10px;
+    padding-top:30px;
+    float:right;
+}
+
+#controls input
+{
+    border:1px solid #123;
+    -moz-box-shadow: 0 0 5px #123;
+    -webkit-box-shadow: 0 0 5px #123;
+    box-shadow: 0 0 5px #123;    
+    padding:6px;
+    width: 450px;
+    display: block;
+    margin-top: 0px;
+}
+
+
+#controls textarea
+{
+    border:1px solid #123;
+    -moz-box-shadow: 0 0 5px #123;
+    -webkit-box-shadow: 0 0 5px #123;
+    box-shadow: 0 0 5px #123;    
+    padding:6px;
+    width: 450px;
+    height: 50px;
+    display: block;
+    margin-top: 8px;
+    
+}
+
+#controls select
+{
+    border:1px solid #123;
+    -moz-box-shadow: 0 0 8px #123;
+    -webkit-box-shadow: 0 0 5px #123;
+    box-shadow: 0 0 5px #123;    
+    padding:6px;
+    width: 464px;
+    display: block;
+    margin-top: 8px;
+}
+
+
+#controls button
+{
+    border:1px solid #333;
+    -moz-box-shadow: 0 0 5px #333;
+    -webkit-box-shadow: 0 0 5px #333;
+    box-shadow: 0 0 5px #333;    
+    padding:7px;
+    width: 100px;
+    background: #123;
+    color:#fff;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 365px;
+}
+
+#controls button:hover
+{
+    border:1px solid #123; 
+    -moz-box-shadow: 0 0 5px #123; 
+    -webkit-box-shadow: 0 0 5px #123; 
+    box-shadow: 0 0 5px #123;     
+    padding:7px;
+    width: 100px;
+    background: #fff;
+    color:#123;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 365px;
+}
+
+#map
+{
+    border:2px solid #333;
+    -moz-box-shadow: 0 0 8px #333;
+    -webkit-box-shadow: 0 0 8px #333;
+    box-shadow: 0 0 8px #333;    
+    width:1300px; 
+    height:1000px;
+    margin:0 auto;
+    margin-top: -10px;
+    background: #123;
+}
+
+#map p
+{
+    font:14px 'helvetica,tahoma,verdana,arial';
+    color:#333;
+    text-align:center;
+}
+
+#map p span
+{
+    font:italic 12px 'helvetica,tahoma,arial'; 
+    color:#333; 
+    text-align:center;
+}
+
+#map p img
+{
+    width:60px; 
+    height:60px;
+}
+
+#map .loader
+{
+    padding-top: 150px !important;
+    color:#fff;
+    font:italic 14px 'helvetica,verdana,tahoma,arial';  
+}
+#map .loader img
+{
+    width: 128px;
+    height: 128px;
+}
