@@ -17,6 +17,7 @@ class Notificacao extends CI_Controller {
    $this->load->model('contratante','',TRUE);
    $this->load->library('session');
    $this->load->library('form_validation');
+   $this->load->library('Auxiliador');
    $this->load->helper('url');
    date_default_timezone_set('America/Sao_Paulo');
 	session_start();
@@ -359,7 +360,13 @@ function alterar_notificacao(){
 		$idContratante = $session_data['id_contratante'] ;
 		$id = $this->input->get('id');
 		$data['dados'] = $this->notificacao_model->listarNotificacaoById($id);
-		
+		$retorno = $this->auxiliador->verificaID($id);
+		if($retorno){
+			redirect('notificacao/listar', 'refresh');
+		}
+		if($data['dados'] == false or is_null($data['dados'])){
+			redirect('notificacao/listar', 'refresh');
+		}
 		
 		$this->load->view('header_pages_view',$data);
 		$this->load->view('notificacoes/editar_notificacoes_view', $data);
@@ -373,7 +380,13 @@ function alterar_notificacao(){
 		$data['id'] = $id = $this->input->get('id');
 		
 		$data['dados'] = $this->notificacao_model->listarArquivoNotificacaoById($id);
-		
+		$retorno = $this->auxiliador->verificaID($id);
+		if($retorno){
+			redirect('notificacao/listar', 'refresh');
+		}
+		if($data['dados'] == false or is_null($data['dados'])){
+			redirect('notificacao/listar', 'refresh');
+		}
 		
 		$this->load->view('header_pages_view',$data);
 		$this->load->view('notificacoes/arquivos_notificacoes_view', $data);

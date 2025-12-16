@@ -17,6 +17,7 @@ class Infracoes extends CI_Controller {
    $this->load->model('contratante','',TRUE);
    $this->load->library('session');
    $this->load->library('form_validation');
+   $this->load->library('Auxiliador');
    $this->load->helper('url');
    date_default_timezone_set('America/Sao_Paulo');
    session_start();
@@ -656,8 +657,16 @@ function alterar_infracao(){
 		$session_data = $_SESSION['login_walmart'];
 		$idContratante = $session_data['id_contratante'] ;
 		$id = $this->input->get('id');
+		$retorno = $this->auxiliador->verificaID($id);
 		$data['dados'] = $this->infracao_model->listarInfracaoById($id);
-		
+		if($retorno){
+			redirect('infracoes/listar', 'refresh');
+		}
+	
+		if($data['dados'] == false or is_null($data['dados'])){
+			redirect('infracoes/listar', 'refresh');
+		}
+
 		$this->load->view('header_pages_view',$data);
 		$this->load->view('infracoes/editar_infracoes_view', $data);
 		$this->load->view('footer_pages_view');
@@ -701,7 +710,16 @@ function alterar_infracao(){
 		$idContratante = $session_data['id_contratante'] ;
 		$data['id'] = $id = $this->input->get('id');
 		$data['dados'] = $this->infracao_model->listarArquivoInfracaoById($id);
-		
+		$retorno = $this->auxiliador->verificaID($id);
+		if($retorno){
+			redirect('infracoes/listar', 'refresh');
+		}
+	
+		if($data['dados'] == false or is_null($data['dados'])){
+			redirect('infracoes/listar', 'refresh');
+		}
+
+
 		$this->load->view('header_pages_view',$data);
 		$this->load->view('infracoes/arquivos_infracoes_view', $data);
 		$this->load->view('footer_pages_view');

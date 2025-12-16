@@ -17,6 +17,7 @@ class Mensagem extends CI_Controller {
    $this->load->model('contratante','',TRUE);
    $this->load->library('session');
    $this->load->library('form_validation');
+   $this->load->library('Auxiliador');
    $this->load->helper('url');
    date_default_timezone_set('America/Sao_Paulo');
 	session_start();
@@ -265,7 +266,13 @@ function alterar_mensagem(){
 		$idContratante = $session_data['id_contratante'] ;
 		$id = $this->input->get('id');
 		$data['dados'] = $this->mensagem_model->listarNotificacaoById($id);
-		
+		$retorno = $this->auxiliador->verificaID($id);
+		if($retorno){
+			redirect('mensagem/listar', 'refresh');
+		}
+		if($data['dados'] == false or is_null($data['dados'])){
+			redirect('mensagem/listar', 'refresh');
+		}
 		
 		$this->load->view('header_pages_view',$data);
 		$this->load->view('mensagem/editar_mensagem_view', $data);
@@ -279,7 +286,13 @@ function alterar_mensagem(){
 		$data['id'] = $id = $this->input->get('id');
 		
 		$data['dados'] = $this->mensagem_model->listarArquivoNotificacaoById($id);
-		
+		$retorno = $this->auxiliador->verificaID($id);
+		if($retorno){
+			redirect('mensagem/listar', 'refresh');
+		}
+		if($data['dados'] == false or is_null($data['dados'])){
+			redirect('mensagem/listar', 'refresh');
+		}
 		
 		$this->load->view('header_pages_view',$data);
 		$this->load->view('mensagem/arquivos_mensagem_view', $data);
