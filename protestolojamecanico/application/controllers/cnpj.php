@@ -10,6 +10,7 @@ class Cnpj extends CI_Controller {
 	$this->load->model('contratante','',TRUE);
 	$this->load->library('session');
 	$this->load->library('form_validation');
+	$this->load->library('Auxiliador');
 	$this->load->helper('url');
     session_start();
   
@@ -269,7 +270,13 @@ class Cnpj extends CI_Controller {
 	$data['perfil'] = $session_data['perfil'];
 	$id = $this->input->get('id');
 	$data['cnpj'] = $this->cnpj_model->listarCnpjById($id);
-	
+	$retorno = $this->auxiliador->verificaID($id);
+	if($retorno){
+		redirect('cnpj/listarCnpj', 'refresh');
+	}
+	if($data['cnpj'] == false or is_null($data['cnpj'])){
+		redirect('cnpj/listarCnpj', 'refresh');
+	}
 	$this->load->view('header_pages_view',$data);
 	$this->load->view('cnpj/editar_cnpj_view', $data);
 	$this->load->view('footer_pages_view');

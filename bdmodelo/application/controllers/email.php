@@ -11,6 +11,7 @@ class Email extends CI_Controller {
 	$this->load->model('contratante','',TRUE);
 	$this->load->library('session');
 	$this->load->library('form_validation');
+	$this->load->library('Auxiliador');
 	$this->load->helper('url');
     session_start();
   
@@ -65,6 +66,13 @@ class Email extends CI_Controller {
 	$data['perfil'] = $session_data['perfil'];
 	$id = $this->input->get('id');
 	$data['depto'] = $this->email_model->listarEmail($id);
+	$retorno = $this->auxiliador->verificaID($id);
+	if($retorno){
+		redirect('email/listarEmail', 'refresh');
+	}
+	if($data['depto'] == false or is_null($data['depto'])){
+		redirect('email/listarEmail', 'refresh');
+	}
 	$this->load->view('header_pages_view',$data);
 	$this->load->view('emails/editar_view', $data);
 	$this->load->view('footer_pages_view');
